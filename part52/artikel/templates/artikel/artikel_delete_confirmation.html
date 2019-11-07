@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Artikel Delete Confirmation
+{% endblock page_title %}
+
+{% block contents %}
+    <h1>Artikel Delete Confirmation</h1>
+    <br>
+    <h3>{{artikel.judul}}</h3>
+    <p>{{artikel.published}}</p>
+    <br>
+
+    <form method="POST">
+    	{% csrf_token %}
+    <button type="submit" class="btn btn-outline-warning">Ya</button>
+	<a class="btn btn-outline-info" href="{% url "artikel:manage" %}">Tidak</a>
+    	
+    </form>
+
+
+
+
+{% endblock contents %}
