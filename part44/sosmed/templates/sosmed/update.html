@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{page_title}}
+{% endblock title %}
+
+{% block contents %}
+    <h1>{{page_title}}</h1>
+
+    <table class="table table-borderless">
+	  <thead>
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">First</th>
+	      <th scope="col">Last</th>
+	      <th scope="col">Username</th>
+	      <th scope="col">Action</th>
+	      <th scope="col">Update</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+
+
+	  		<tr>
+		      <th scope="row">{{akun_form.id}}</th>
+		      <td>{{akun_form.nama_depan}}</td>
+		      <td>{{akun_form.nama_belakang}}</td>
+		      <td>{{akun_form.username}}</td>
+		      
+		    </tr>
+		    	
+	
+	  </tbody>
+	</table>
+
+	<form method="POST">
+    	{% csrf_token %}
+
+    	<table>
+    		{{akun_form}}
+    	</table>
+    	<button type="Submit" class="btn btn-primary">Kirim</button>
+    </form>
+
+
+	
+
+{% endblock contents %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block page_title %}
+    {{page_title}}
+{% endblock page_title %}
+
+<{% block contents %}
+    <form method="POST">
+    	{% csrf_token %}
+    	<table>
+    		{{post_form}}
+    	</table>
+    	<button type="Submit">Kirim</button>
+    </form>
+{% endblock contents %}

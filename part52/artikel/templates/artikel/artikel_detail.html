@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+{% block page_title %}
+    {{artikel.judul}}
+{% endblock page_title %}
+
+
+{% block contents %}
+<h1>Detail Artikel</h1>
+<br>
+
+<div class="row">
+	<div class="col-md-8">
+		<h1> {{artikel.judul}} </h1>
+	    <h5>Kategori : {{artikel.kategori}} | {{artikel.published}} </h5>
+	    <p> {{artikel.isi}} </p>	
+	</div>
+	<div class="col-sm">
+		<h1>Kategori</h1>
+        {% for kategori in kategori_list %}
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <a class="text-dark" href="{% url "artikel:kategori" kategori 1 %}">{{kategori}}</a>
+         </li>
+        </ul>
+        {% endfor %}
+        <h1>Artikel Serupa</h1>
+        <ul class="list-group list-group-flush">
+        {% for artikel in artikel_serupa %}
+        {% if forloop.counter is not 3 %}
+            <li class="list-group-item">
+            <a class="text-dark" href="{% url "artikel:detail" artikel.slug %}" ><h5>{{artikel.judul}}</h5></a>
+            <p>{{artikel.published|date}}</p>
+         </li>
+        
+        {% endif %}
+
+        
+        {% endfor %}
+        <li class="list-group-item"><a class="text-dark" href="{% url "artikel:kategori" artikel.kategori 1 %}">Selengkapnya</a></li>
+        </ul>
+	</div>	
+</div>
+
+    
+{% endblock contents %}

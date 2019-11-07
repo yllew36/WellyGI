@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Create
+{% endblock page_title %}
+
+{% block contents %}
+    <h1>Tambah Artikel</h1>
+
+    <form method="POST">
+    	{% csrf_token %}
+		  <div class="form-group row">
+		    <label for="{{form.judul.id_for_label}}" class="col-sm-2 col-form-label">{{form.judul.label}} :</label>
+		    <div class="col-sm-10">
+		      <input type="text"  class="form-control" name="{{form.judul.name}}" maxlength="{{form.judul.max}}" required  id="form.judul.id_for_label">
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="{{form.isi.id_for_label}}" class="col-sm-2 col-form-label">{{form.isi.label}} :</label>
+		    <div class="col-sm-10">
+		      <textarea  class="form-control" name="{{form.isi.name}}" required rows="10" id="form.isi.id_for_label"></textarea>
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="{{form.kategori.id_for_label}}" class="col-sm-2 col-form-label">{{form.kategori.label}} :</label>
+		    <div class="col-sm-10">
+		      <input type="text"  class="form-control" name="{{form.kategori.name}}" maxlength="{{form.kategori.max}}" required  id="form.kategori.id_for_label">
+		    </div>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Tambah</button>
+		</form>
+{% endblock contents %}

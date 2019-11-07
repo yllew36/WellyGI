@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    {% include "snippets/styles.html " %}
+    {% block app-css %}
+        
+<link rel="stylesheet" type="text/css" href="{% static "/css/styles.css" %}">
+    {% endblock app-css %}
+    
+
+<body>
+    {% include "snippets/navbar.html" %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center text-white" id="myBody">
+            {% block header %}
+            {% endblock header %}
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container bg-info shadow text-dark" style="margin-top:-100px">
+            {% block content1 %}
+            {% endblock content1 %}
+        </div>
+        <div class="container bg-success shadow text-white">
+            {% block content2 %}
+            {% endblock content2 %}
+        </div>
+    </div>
+    {% include "snippets/scripts.html" %}
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{page_title}}</title>
+</head>
+<body>
+	<h1>{{page_title}}</h1>
+	<p>{{object_list}}</p>
+
+	<ol>
+		{% for artikel in object_list %}
+			<li>{{artikel.judul}} - oleh: {{artikel.penulis}}  </li>
+			<p>{{artikel.isi}}</p>
+		{% endfor %}
+	</ol>
+
+</body>
+</html>
