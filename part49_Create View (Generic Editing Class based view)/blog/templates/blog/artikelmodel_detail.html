@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> {{page_title}} </title>
+</head>
+<body>
+	<h1> {{page_title}} </h1>
+	<h2>{{object.judul}}</h2>
+	<span>Oleh : {{object.penulis}}, Ditulis : {{object.publish}} </span>
+	<p> {{object.isi}} </p>
+
+	<br>
+	<a href="{% url "blog:list" 'all' %}">Back</a>
+	<br>
+	<h2>Artikel Lain :</h2>
+	
+	<ol>
+		{% for artikel in artikel_lain %}
+			<li><a href="{% url "blog:detail" artikel.slug %}">{{artikel.judul}}, {{artikel.penulis}}</a></li>
+		{% endfor %}
+
+	</ol>
+</body>
+</html>
